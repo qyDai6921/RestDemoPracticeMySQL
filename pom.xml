@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>RestDemoPractice</name>
+    <description>Demo project for Spring Boot</description>
+    <!--    -->
+    <packaging>jar</packaging>
+    <url>http://maven.apache.org</url>
+
+
+    <properties>
+        <java.version>1.8</java.version>
+        <!--       -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!--        删除：-->
+            <scope>test</scope>
+        </dependency>
+
+        <!--        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--        &lt;!&ndash;        删除：&ndash;&gt;-->
+        <!--        &lt;!&ndash;org.springframework.boot里已经包含了hibernate，所以不用加了        &ndash;&gt;-->
+        <!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <groupId>org.hibernate</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <artifactId>hibernate-core</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <version>5.6.5.Final</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;        </dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;这个只是针对数据的jpa        &ndash;&gt;-->
+        <!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <groupId>org.springframework.data</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <artifactId>spring-data-jpa</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <version>2.3.3.RELEASE</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;        </dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;javax.validation和spring-boot-starter-validation都可以        &ndash;&gt;-->
+        <!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <groupId>javax.validation</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <artifactId>validation-api</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <version>2.0.1.Final</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;        </dependency>&ndash;&gt;-->
+
+        <!--javax.validation和spring-boot-starter-validation都可以         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <groupId>io.springfox</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <artifactId>springfox-boot-starter</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <version>3.0.0</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;        </dependency>&ndash;&gt;-->
+        <!-- swagger2       版本不能太高:-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+
+        <!--        添加：-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0.1</version>
+        </dependency>
+
+        <!--好像没用到：        -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>3.0.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${project.parent.version}</version>
+                <!--                -->
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+            </plugin>
+
+            <!--            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <!--  删除的地方会影响这里加不进去！！！-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!--Create report using #mvn jacoco:report# -->
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
+
+        <!-- 源代码：////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
+        <!--    <parent>-->
+        <!--        <groupId>org.springframework.boot</groupId>-->
+        <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--        <version>2.3.3.RELEASE</version>-->
+        <!--    </parent>-->
+
+        <!--    <properties>-->
+        <!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+        <!--        <java.version>1.8</java.version>-->
+        <!--    </properties>-->
+
+        <!--    <dependencies>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-api</artifactId>-->
+        <!--            <version>2.3.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-impl</artifactId>-->
+        <!--            <version>2.3.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-core</artifactId>-->
+        <!--            <version>2.3.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.activation</groupId>-->
+        <!--            <artifactId>activation</artifactId>-->
+        <!--            <version>1.1.1</version>-->
+        <!--        </dependency>-->
+
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.h2database</groupId>-->
+        <!--            <artifactId>h2</artifactId>-->
+        <!--            <scope>runtime</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-test</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-validation</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--        <groupId>io.rest-assured</groupId>-->
+        <!--        <artifactId>rest-assured</artifactId>-->
+        <!--        <version>3.0.7</version>-->
+        <!--        <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.rest-assured</groupId>-->
+        <!--            <artifactId>spring-mock-mvc</artifactId>-->
+        <!--            <version>3.0.7</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.hamcrest</groupId>-->
+        <!--            <artifactId>hamcrest-all</artifactId>-->
+        <!--            <version>1.3</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.springfox</groupId>-->
+        <!--            <artifactId>springfox-swagger2</artifactId>-->
+        <!--            <version>2.9.2</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.springfox</groupId>-->
+        <!--            <artifactId>springfox-swagger-ui</artifactId>-->
+        <!--            <version>2.0.2</version>-->
+        <!--        </dependency>-->
+        <!--    </dependencies>-->
+        <!--    <build>-->
+        <!--        <finalName>SpringRest</finalName>-->
+        <!--        <plugins>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+        <!--                <configuration>-->
+        <!--                    <source>8</source>-->
+        <!--                    <target>8</target>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--                <configuration>-->
+        <!--                    <executable>true</executable>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.jacoco</groupId>-->
+        <!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+        <!--                <version>0.8.2</version>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <id>prepare-agent</id>-->
+        <!--                        <goals>-->
+        <!--                            <goal>prepare-agent</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                    &lt;!&ndash;Create report using #mvn jacoco:report# &ndash;&gt;-->
+        <!--                    <execution>-->
+        <!--                        <id>report</id>-->
+        <!--                        <phase>prepare-package</phase>-->
+        <!--                        <goals>-->
+        <!--                            <goal>report</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
+        <!--    </build>-->
+        <!--</project>-->
+

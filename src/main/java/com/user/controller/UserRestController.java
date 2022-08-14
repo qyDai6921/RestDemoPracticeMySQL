@@ -99,8 +99,8 @@ public class UserRestController {
      **/
     @ApiOperation("create a user:")
     @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json")
-//    public ResponseEntity<ResponseMessage> createUser(@Validated User user, UriComponentsBuilder ucBuilder) { // User里有验证条件
-    public ResponseEntity<ResponseMessage> createUser(@Validated @RequestBody User user, UriComponentsBuilder ucBuilder) { // 有一个RequestBody输入模板
+    public ResponseEntity<ResponseMessage> createUser(@Validated User user, UriComponentsBuilder ucBuilder) { // User里有验证条件
+//    public ResponseEntity<ResponseMessage> createUser(@Validated @RequestBody User user, UriComponentsBuilder ucBuilder) { // 有一个RequestBody输入模板
         System.out.println("Creating User " + user.getName());
 
         User savedUser = userService.saveUser(user);

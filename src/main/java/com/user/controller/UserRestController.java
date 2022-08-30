@@ -45,7 +45,7 @@ public class UserRestController {
 
     //http://localhost:8009/swagger-ui.html#/
 
-    // database: http://localhost:3306/restdemo1
+    // database: http://localhost:8009/restdemo1
 
     /**
      * 1. GET: Get user by using pagination, if no parameters are provided, the first page with 10 records will be returned
